@@ -22,13 +22,14 @@ document.addEventListener('DOMContentLoaded', function () {
             active: true,
             currentWindow: true
         }
+
         chrome.tabs.query(params, function tabsGotten (tabs){
-            console.log(tabs)
         // Message the content script with the selected font
         let message = {
             type: "font",
             content: selectedFont
         }
+
         // Message the content script with the selected font
         chrome.tabs.sendMessage(tabs[0].id, message)
         })
@@ -44,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentWindow: true
             }
             chrome.tabs.query(params, function tabsGotten (tabs){
-                console.log(tabs)
+               
 
             let message = {
                 type: "colour",

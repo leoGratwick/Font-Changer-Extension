@@ -16,9 +16,16 @@ console.log(originalColour);
 const savedFont = localStorage.getItem("selectedFont");
 const savedColour = localStorage.getItem("selectedColour");
 
-// if (savedFont) {
-//   changeFontForElement(document.documentElement, savedFont);
-// }
+if (savedFont) {
+  if (savedFont !== "Original"){
+  changeFontForElement(document.documentElement, savedFont);
+}
+}
+if (savedColour) {
+  if (savedColour !== "Original"){
+  changeColourForElement(document.documentElement, savedColour);
+  }
+}
 
 
 function changeFontForElement(element, font) {

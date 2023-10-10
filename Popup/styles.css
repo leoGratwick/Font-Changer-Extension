@@ -3,33 +3,50 @@
     src: url('./Fonts/Open Sans/OpenSans-Regular.ttf') format('ttf');
   }
 
+  :root {
+    --primary-color: rgb(32, 125, 192);
+
+
+  }
+
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
     
 }
 
+
+
 .font-selection-box{
-    background-color: lightblue;
+    border-radius: 0.25em;
+    background-color: white;
+    color: var(--primary-color);
     padding: 5px;
-    border: 0.5px solid darkblue;
     width: 150px;
+    font-weight: 400;
   }
 
 .btn-primary{
     border-radius: 4px;
-    background-color: lightblue;
-    border: 1.5px solid darkblue;
+    background-color: white;
+    border: 1.7px solid var(--primary-color);
+    color: var(--primary-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 500;
-    padding: 10px;
+    font-weight: 600;
+    padding: 5px;
     cursor: pointer;
     
 }
 
 .btn-primary:hover{
-    background-color: rgb(147, 184, 211);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.option{
+    font-weight: 400;
+    color: var(--primary-color);
 }
 
 .container{
@@ -40,8 +57,7 @@ body{
     justify-content: center;
     align-items: center;
     gap: 10px;
-    background-color: rgb(179, 220, 243);
-    border-radius: 20%;
+    background-color: rgb(164, 152, 207);
 }
 
 .font-changer{
