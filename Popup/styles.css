@@ -8,10 +8,11 @@ body{
     background-color: rgb(179, 220, 243);
 }
 
-.font-detection-box{
+.font-selection-box{
     background-color: lightblue;
     padding: 5px;
     border: 0.5px solid darkblue;
+    width: 150px;
   }
 
 .btn-primary{
@@ -32,7 +33,7 @@ body{
 }
 
 .container{
-    height: 100px;
+    height: 300px;
     width: 200px;
     display: flex;
     flex-direction: column;

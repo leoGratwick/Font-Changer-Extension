@@ -8,13 +8,17 @@ chrome.runtime.onMessage.addListener(gotMessage);
 const originalFont = document.body.style.fontFamily;
 console.log(originalFont);
 
+const originalColour = document.body.style.color;
+console.log(originalColour);
 
-// Reapplies saved font from local storage after refreshed
+
+// Reapplies saved font/colour from local storage after refreshed
 const savedFont = localStorage.getItem("selectedFont");
+const savedColour = localStorage.getItem("selectedColour");
 
-if (savedFont) {
-  changeFontForElement(document.documentElement, savedFont);
-}
+// if (savedFont) {
+//   changeFontForElement(document.documentElement, savedFont);
+// }
 
 
 function changeFontForElement(element, font) {
@@ -25,22 +29,57 @@ function changeFontForElement(element, font) {
     });
   }
 
+function changeColourForElement(element, colour) {
+  element.style.color = colour;
+  const childElements = element.querySelectorAll('*');
+  childElements.forEach((child) => {
+    child.style.color = colour;
+  });
+}
+
 
 function gotMessage (message, sender, senderResponse){
     console.log("recieved a message");
-        const selectedFont = message
+        const type = message.type
+
+        //for fonts
+        if (type == "font"){
+
+        let selectedFont = message.content
         // save font in local storage
         localStorage.setItem("selectedFont", selectedFont);
 
         // Apply the Font
-        if (message == "Original"){
+        if (selectedFont == "Original"){
             changeFontForElement(document.documentElement, originalFont);
         }
         else{changeFontForElement(document.documentElement, selectedFont);}
 
-
         console.log("Font attempteed to apply: " + selectedFont);
         console.log("Font applied: " + document.documentElement.style.fontFamily);
+
+        }
+
+        //for colours
+
+        else if (type == "colour"){
+          let selectedColour = message.content
+        // save colour in local storage
+        localStorage.setItem("selectedColour", selectedColour);
+
+        // Apply the Colour
+        if (message == "Original"){
+            changeColourForElement(document.documentElement, originalColour);
+        }
+        else{changeColourForElement(document.documentElement, selectedColour);}
+
+        console.log("Colour attempteed to apply: " + selectedFont);
+        console.log("Colour applied: " + document.documentElement.style.color);
+        }
+        
+
+
+        
 }
 
 
