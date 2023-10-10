@@ -5,7 +5,7 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(179, 220, 243);
+    
 }
 
 .font-selection-box{
@@ -40,6 +40,8 @@ body{
     justify-content: center;
     align-items: center;
     gap: 10px;
+    background-color: rgb(179, 220, 243);
+    border-radius: 20%;
 }
 
 .font-changer{
